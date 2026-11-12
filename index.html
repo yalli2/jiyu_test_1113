@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>¡Examen #2! · Spanish Test Prep</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#FFF7E8;--ink:#2A1E3F;--red:#E4432B;--yel:#FFC531;--teal:#159A8C;--pur:#6B4EE6;--pink:#FF8FA3;--card:#fff;--soft:#F3E9D2}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:'Noto Sans KR',system-ui,sans-serif;line-height:1.6;padding-bottom:84px}
+body.ko .en,body.en .ko{display:none}
+h1,h2,h3,.es,.big,button{font-family:'Fredoka','Noto Sans KR',sans-serif}
+h2{font-size:1.45rem;margin:.2em 0 .5em}h3{font-size:1.1rem;margin:0 0 .4em}
+p{margin:.4em 0}
+header{position:sticky;top:0;z-index:5;background:var(--ink);color:#fff;display:flex;align-items:center;gap:10px;padding:10px 14px}
+header h1{font-size:1.15rem;margin:0;flex:1}
+.dday{background:var(--yel);color:var(--ink);font-weight:700;border-radius:99px;padding:2px 12px;font-family:'Fredoka'}
+.lang{background:#fff;color:var(--ink);border:0;border-radius:99px;padding:5px 12px;font-weight:600;cursor:pointer}
+main{max-width:760px;margin:0 auto;padding:16px 14px}
+.card{background:var(--card);border:2.5px solid var(--ink);border-radius:18px;padding:16px;margin:0 0 16px;box-shadow:4px 4px 0 var(--ink)}
+.card.y{background:#FFF1BF}.card.t{background:#D9F3EE}.card.p{background:#E9E3FF}.card.r{background:#FFE1DA}
+.hero{background:var(--red);color:#fff;text-align:center}
+.hero .big{font-size:2.2rem;line-height:1.1;margin:.1em 0}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.tcard{cursor:pointer;margin:0;text-align:left;font:inherit;color:inherit}
+.tcard .emo{font-size:1.8rem}
+.tcard b{display:block;font-family:'Fredoka','Noto Sans KR';font-size:1.02rem;line-height:1.3}
+.meter{height:10px;background:var(--soft);border-radius:9px;border:1.5px solid var(--ink);overflow:hidden;margin-top:8px}
+.meter i{display:block;height:100%;background:var(--teal)}
+.es{color:var(--red);font-weight:600}
+.big{font-size:2rem;font-weight:700;text-align:center}
+.pill{display:inline-block;background:var(--ink);color:#fff;border-radius:99px;padding:1px 12px;font-family:'Fredoka';font-weight:600}
+.blank{display:inline-block;min-width:70px;border-bottom:3px solid var(--red);margin:0 4px}
+ul{padding-left:1.2em;margin:.3em 0}
+.chips{display:flex;flex-wrap:wrap;gap:7px;margin:8px 0}
+.chip{border:2px solid var(--ink);background:#fff;border-radius:12px;padding:6px 12px;font-size:1rem;font-weight:600;cursor:pointer;color:var(--ink)}
+.chip.sel,.chip.on{background:var(--yel)}
+.chip.m{background:#D6E8FF}.chip.f{background:#FFDDE6}
+.chip:disabled{opacity:.25}
+.boot{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:8px}
+.boot div{border:2px solid var(--ink);border-radius:12px;padding:7px 10px;background:#fff;cursor:pointer}
+.boot div.in{background:var(--yel)}
+.boot div.dim{opacity:.45}
+.boot small{display:block;font-size:.75rem;opacity:.7}
+.boot b{font-family:'Fredoka';font-size:1.15rem}
+.boot u{text-decoration:none;color:var(--red)}
+.qbtn{display:flex;align-items:center;gap:10px;width:100%;text-align:left;border:2.5px solid var(--ink);background:#fff;border-radius:14px;padding:11px 14px;margin:8px 0;font-size:1rem;font-weight:600;cursor:pointer;box-shadow:3px 3px 0 var(--ink);color:var(--ink)}
+.qbtn:active{transform:translate(2px,2px);box-shadow:1px 1px 0 var(--ink)}
+.qbtn span.s{margin-left:auto;font-size:.85rem;white-space:nowrap}
+.primary{display:block;width:100%;border:2.5px solid var(--ink);background:var(--pur);color:#fff;border-radius:14px;padding:12px;font-size:1.05rem;font-weight:600;margin-top:12px;cursor:pointer;box-shadow:3px 3px 0 var(--ink)}
+.flash{min-height:150px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;cursor:pointer;background:var(--yel);border:2.5px solid var(--ink);border-radius:16px;padding:14px}
+.row{display:flex;gap:8px;align-items:center;justify-content:center;margin-top:8px}
+.mini{border:2px solid var(--ink);background:#fff;border-radius:10px;padding:5px 14px;font-weight:600;cursor:pointer;color:var(--ink)}
+.match{display:grid;grid-template-columns:repeat(3,1fr);gap:7px}
+.match button{min-height:62px;border:2px solid var(--ink);border-radius:12px;background:#fff;font-size:.92rem;font-weight:600;cursor:pointer;padding:4px;color:var(--ink)}
+.match button.open{background:var(--yel)}.match button.gone{background:var(--teal);color:#fff;opacity:.55}
+table{width:100%;border-collapse:collapse;font-size:.95rem}
+td,th{border:1.5px solid var(--ink);padding:6px 8px;text-align:left;vertical-align:top}
+th{background:var(--ink);color:#fff;font-family:'Fredoka','Noto Sans KR'}
+.formula{font-family:'Fredoka','Noto Sans KR';font-size:1.15rem;text-align:center;background:#fff;border:2px dashed var(--ink);border-radius:12px;padding:10px;margin:8px 0}
+.say{border:0;background:none;font-size:1.1rem;cursor:pointer;padding:0 4px}
+nav{position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:2.5px solid var(--ink);display:flex;z-index:6}
+nav button{flex:1;border:0;background:none;padding:8px 0 10px;font-size:.7rem;font-weight:600;cursor:pointer;color:var(--ink)}
+nav button i{display:block;font-style:normal;font-size:1.35rem}
+nav button.on{background:var(--yel)}
+.overlay{position:fixed;inset:0;background:var(--bg);z-index:20;overflow:auto}
+.qwrap{max-width:640px;margin:0 auto;padding:14px}
+.qtop{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+.x{border:2px solid var(--ink);background:#fff;border-radius:50%;width:36px;height:36px;font-size:1rem;cursor:pointer;color:var(--ink)}
+.bar{flex:1;height:14px;border:2px solid var(--ink);border-radius:9px;background:#fff;overflow:hidden}
+.bar i{display:block;height:100%;background:var(--teal);transition:width .3s}
+.qtext{font-size:1.25rem;font-weight:600;text-align:center;margin:6px 0 14px;font-family:'Fredoka','Noto Sans KR'}
+.qtext p{font-size:.95rem;font-weight:400;font-family:'Noto Sans KR'}
+.opts{display:grid;gap:9px}
+.opt{border:2.5px solid var(--ink);background:#fff;border-radius:14px;padding:12px;font-size:1.1rem;font-weight:600;cursor:pointer;color:var(--ink)}
+.opt.ok{background:#BDEBC8}.opt.bad{background:#FFC2B8}
+#ti{width:100%;font-size:1.3rem;padding:11px;border:2.5px solid var(--ink);border-radius:14px;text-align:center;font-family:'Fredoka'}
+.acc{display:flex;gap:6px;justify-content:center;margin-top:8px}
+.acc button{border:2px solid var(--ink);background:#fff;border-radius:9px;width:36px;height:36px;font-size:1.05rem;cursor:pointer;color:var(--ink)}
+.ansline{min-height:58px;border:2.5px dashed var(--ink);border-radius:14px;padding:8px;display:flex;flex-wrap:wrap;gap:6px;background:#fff;margin-bottom:10px}
+.pool{display:flex;flex-wrap:wrap;gap:6px;justify-content:center}
+.ph{opacity:.5;font-size:.9rem;align-self:center}
+.fb{border:2.5px solid var(--ink);border-radius:14px;padding:11px 14px;margin-top:14px}
+.fb.good{background:#BDEBC8}.fb.bad{background:#FFC2B8}
+.ex{font-size:.93rem;margin-top:4px}
+.result{text-align:center}
+.result .pct{font-family:'Fredoka';font-size:3.6rem;font-weight:700;line-height:1}
+.rev{text-align:left;font-size:.92rem;border-top:1.5px dashed var(--ink);padding:7px 0}
+#confetti{position:fixed;inset:0;pointer-events:none;z-index:30}
+@media(max-width:420px){.grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body class="ko">
+<header>
+  <h1>¡Examen #2! 🇪🇸</h1>
+  <span class="dday" id="dday"></span>
+  <button class="lang" onclick="toggleLang()">한 / EN</button>
+</header>
+<main id="main"></main>
+<nav id="nav"></nav>
+<div id="quiz" class="overlay" hidden></div>
+<canvas id="confetti"></canvas>
+<script>
+/* ============ helpers ============ */
+const B=(ko,en)=>`<span class="ko">${ko}</span><span class="en">${en}</span>`;
+const $=s=>document.querySelector(s);
+const shuffle=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;};
+const pick=a=>a[Math.floor(Math.random()*a.length)];
+const sample=(a,n)=>shuffle(a).slice(0,n);
+const uniq=a=>[...new Set(a)];
+const norm=s=>s.toLowerCase().replace(/[¿?¡!.,]/g,'').replace(/\s+/g,' ').trim();
+const noAcc=s=>s.normalize('NFD').replace(/[̀-ͯ]/g,'');
+const BL='<span class="blank"></span>';
+const sayBtn=t=>`<button class="say" data-say="${t}">🔊</button>`;
+const store={get(){try{return JSON.parse(localStorage.getItem('jiyu1113')||'{}')}catch(e){return {}}},set(o){try{localStorage.setItem('jiyu1113',JSON.stringify(o))}catch(e){}}};
+let save=store.get();save.best=save.best||{};
+
+/* ============ data ============ */
+const END={ar:['o','as','a','amos','áis','an'],er:['o','es','e','emos','éis','en'],ir:['o','es','e','imos','ís','en']};
+const PR=['yo','tú','él / ella / usted','nosotros','vosotros','ellos / ellas / ustedes'];
+const P5=[0,1,2,3,5];
+const V=[
+ {inf:'empezar',s:'empez',c:'empiez',ch:'e→ie',ko:'시작하다',en:'to begin, to start'},
+ {inf:'pensar',s:'pens',c:'piens',ch:'e→ie',ko:'생각하다',en:'to think'},
+ {inf:'querer',s:'quer',c:'quier',ch:'e→ie',ko:'원하다',en:'to want'},
+ {inf:'perder',s:'perd',c:'pierd',ch:'e→ie',ko:'잃다, (경기에서) 지다',en:'to lose'},
+ {inf:'preferir',s:'prefer',c:'prefier',ch:'e→ie',ko:'더 좋아하다, 선호하다',en:'to prefer'},
+ {inf:'jugar',s:'jug',c:'jueg',ch:'u→ue',ko:'(운동·게임을) 하다, 놀다',en:'to play (a sport/game)'},
+ {inf:'poder',s:'pod',c:'pued',ch:'o→ue',ko:'~할 수 있다',en:'can, to be able to'},
+ {inf:'volver',s:'volv',c:'vuelv',ch:'o→ue',ko:'돌아오다, 돌아가다',en:'to return, to come back'},
+ {inf:'devolver',s:'devolv',c:'devuelv',ch:'o→ue',ko:'(물건을) 돌려주다',en:'to return (something), to give back'},
+ {inf:'dormir',s:'dorm',c:'duerm',ch:'o→ue',ko:'자다',en:'to sleep'}
+];
+const isBoot=i=>[0,1,2,5].includes(i);
+const conj=(v,i)=>(isBoot(i)?v.c:v.s)+END[v.inf.slice(-2)][i];
+const SENT=[
+ ['Yo ___ una pizza.','querer','quiero','나는 피자를 원해.','I want a pizza.'],
+ ['Nosotros ___ al fútbol.','jugar','jugamos','우리는 축구를 해.','We play soccer.'],
+ ['¿Tú ___ venir a mi casa?','poder','puedes','너 우리 집에 올 수 있어?','Can you come to my house?'],
+ ['Ella ___ ocho horas.','dormir','duerme','그녀는 8시간 자.','She sleeps eight hours.'],
+ ['La clase ___ a las ocho.','empezar','empieza','수업은 8시에 시작해.','Class starts at eight.'],
+ ['Ellos ___ a casa.','volver','vuelven','그들은 집에 돌아가.','They return home.'],
+ ['Yo ___ el libro a la biblioteca.','devolver','devuelvo','나는 책을 도서관에 반납해.','I return the book to the library.'],
+ ['Mi equipo nunca ___.','perder','pierde','우리 팀은 절대 지지 않아.','My team never loses.'],
+ ['Nosotros ___ el chocolate.','preferir','preferimos','우리는 초콜릿을 더 좋아해.','We prefer chocolate.'],
+ ['¿Qué ___ tú?','pensar','piensas','너는 어떻게 생각해?','What do you think?'],
+ ['Ustedes ___ mucho.','dormir','duermen','여러분은 많이 자요.','You all sleep a lot.'],
+ ['Tú ___ al tenis.','jugar','juegas','너는 테니스를 쳐.','You play tennis.'],
+ ['Nosotros ___ hablar español.','poder','podemos','우리는 스페인어를 말할 수 있어.','We can speak Spanish.'],
+ ['Yo siempre ___ mis llaves.','perder','pierdo','나는 항상 열쇠를 잃어버려.','I always lose my keys.'],
+ ['Ellas ___ bailar.','querer','quieren','그녀들은 춤추고 싶어 해.','They want to dance.'],
+ ['Usted ___ el té.','preferir','prefiere','당신은 차를 더 좋아하시네요.','You (formal) prefer tea.'],
+ ['Nosotros ___ mañana.','volver','volvemos','우리는 내일 돌아와.','We come back tomorrow.'],
+ ['Yo ___ la tarea ahora.','empezar','empiezo','나는 지금 숙제를 시작해.','I start the homework now.'],
+ ['Nosotros ___ en español.','pensar','pensamos','우리는 스페인어로 생각해.','We think in Spanish.'],
+ ['Mis amigos ___ videojuegos.','jugar','juegan','내 친구들은 비디오게임을 해.','My friends play video games.']
+];
+const IR=['voy','vas','va','vamos','vais','van'];
+const SUBJ=[
+ {es:'Yo',ir:'voy',ko:'나는',en:'I go'},{es:'Tú',ir:'vas',ko:'너는',en:'You go'},
+ {es:'Ella',ir:'va',ko:'그녀는',en:'She goes'},{es:'Él',ir:'va',ko:'그는',en:'He goes'},
+ {es:'Nosotros',ir:'vamos',ko:'우리는',en:'We go'},{es:'Ellos',ir:'van',ko:'그들은',en:'They go'}];
+const SUBJ2=SUBJ.concat([{es:'Mi mamá',ir:'va'},{es:'Mis amigos',ir:'van'},{es:'Ustedes',ir:'van'},{es:'Usted',ir:'va'},{es:'Mi hermano y yo',ir:'vamos'}]);
+const PLACES=[
+ ['banco','m','은행','bank'],['parque','m','공원','park'],['cine','m','영화관','movie theater'],['supermercado','m','슈퍼마켓','supermarket'],
+ ['restaurante','m','식당','restaurant'],['museo','m','박물관','museum'],['gimnasio','m','체육관','gym'],['hospital','m','병원','hospital'],
+ ['centro comercial','m','쇼핑몰','mall'],['estadio','m','경기장','stadium'],['café','m','카페','café'],['aeropuerto','m','공항','airport'],
+ ['escuela','f','학교','school'],['biblioteca','f','도서관','library'],['playa','f','해변','beach'],['tienda','f','가게','store'],
+ ['piscina','f','수영장','pool'],['farmacia','f','약국','pharmacy'],['cafetería','f','구내식당','cafeteria'],['iglesia','f','교회','church'],
+ ['fiesta','f','파티','party'],['oficina','f','사무실','office'],['librería','f','서점','bookstore'],['plaza','f','광장','plaza']
+].map(a=>({es:a[0],g:a[1],ko:a[2],en:a[3]}));
+const prep=p=>p.g==='m'?'al':'a la';
+const REG=[['hablar','hablo','hablas','hablamos'],['comer','como','comes','comemos'],['vivir','vivo','vives','vivimos'],['estudiar','estudio','estudias','estudian'],['leer','leo','lees','leen'],['escribir','escribo','escribes','escriben'],['bailar','bailo','baila','bailan'],['correr','corro','corres','corre']];
+const EXPR=[
+ {g:'∅',list:[['querer','~하고 싶다','to want to'],['poder','~할 수 있다','can'],['preferir','~하는 걸 더 좋아하다','to prefer to'],['necesitar','~해야 한다(필요)','to need to'],['deber','~해야 한다(의무)','should, must'],['pensar','~할 계획이다','to plan to'],['esperar','~하기를 바라다','to hope to'],['saber','~할 줄 알다','to know how to']]},
+ {g:'a',list:[['ir a','~할 것이다','to be going to'],['empezar a','~하기 시작하다','to start to'],['aprender a','~하는 것을 배우다','to learn to'],['ayudar a','~하는 것을 돕다','to help to'],['volver a','다시 ~하다','to do again']]},
+ {g:'de',list:[['acabar de','방금 ~했다','to have just'],['tratar de','~하려고 노력하다','to try to'],['dejar de','~하는 것을 그만두다','to stop -ing'],['tener ganas de','~하고 싶다','to feel like -ing']]},
+ {g:'que',list:[['tener que','~해야 한다','to have to'],['hay que','(누구나) ~해야 한다','one must']]}
+];
+const PREPQ=[
+ ['Voy','estudiar esta noche.','a','나는 오늘 밤 공부할 거야.','I am going to study tonight.'],
+ ['Tengo','hacer la tarea.','que','나는 숙제를 해야 해.','I have to do the homework.'],
+ ['Acabo','comer.','de','나는 방금 먹었어.','I have just eaten.'],
+ ['Quiero','dormir.','∅','나는 자고 싶어.','I want to sleep.'],
+ ['Puedo','nadar muy bien.','∅','나는 수영을 아주 잘할 수 있어.','I can swim very well.'],
+ ['Empiezo','leer el libro.','a','나는 책을 읽기 시작해.','I start to read the book.'],
+ ['Aprendo','cocinar.','a','나는 요리하는 걸 배워.','I am learning to cook.'],
+ ['Trato','hablar español.','de','나는 스페인어로 말하려고 노력해.','I try to speak Spanish.'],
+ ['Hay','estudiar para el examen.','que','시험공부를 해야 해.','One must study for the exam.'],
+ ['Necesito','descansar.','∅','나는 쉬어야 해.','I need to rest.'],
+ ['Debo','limpiar mi cuarto.','∅','나는 내 방을 청소해야 해.','I should clean my room.'],
+ ['Prefiero','ir al cine.','∅','나는 영화관에 가는 게 더 좋아.','I prefer to go to the movies.'],
+ ['Dejo','jugar videojuegos.','de','나는 비디오게임을 그만둬.','I stop playing video games.'],
+ ['Ayudo','limpiar la casa.','a','나는 집 청소를 도와.','I help to clean the house.'],
+ ['Vuelvo','leer el libro.','a','나는 그 책을 다시 읽어.','I read the book again.'],
+ ['Tengo ganas','bailar.','de','나는 춤추고 싶어.','I feel like dancing.'],
+ ['Pienso','viajar a México.','∅','나는 멕시코로 여행 갈 계획이야.','I plan to travel to Mexico.'],
+ ['Espero','sacar una buena nota.','∅','나는 좋은 점수를 받기를 바라.','I hope to get a good grade.'],
+ ['Vamos','jugar al fútbol.','a','우리는 축구를 할 거야.','We are going to play soccer.'],
+ ['Tienes','volver a casa.','que','너는 집에 돌아가야 해.','You have to go back home.']
+];
+const TWO=[
+ ['Quiero comer pizza.',['Quiero como pizza.','Querer como pizza.','Quiero comes pizza.']],
+ ['Puedes jugar hoy.',['Puedes juegas hoy.','Poder juegas hoy.','Puedes juego hoy.']],
+ ['Tenemos que estudiar.',['Tenemos que estudiamos.','Tenemos estudiar.','Tener que estudiamos.']],
+ ['Voy a dormir.',['Voy a duermo.','Voy dormir.','Ir a duermo.']],
+ ['Ella acaba de volver.',['Ella acaba de vuelve.','Ella acaba volver.','Ella acabar de vuelve.']],
+ ['Prefiero leer.',['Prefiero leo.','Prefiero a leer.','Preferir leo.']],
+ ['Empezamos a trabajar.',['Empezamos a trabajamos.','Empezamos trabajar.','Empezamos de trabajar.']],
+ ['Necesitas descansar.',['Necesitas descansas.','Necesitas que descansar.','Necesitar descansas.']]
+];
+const ORD3=[
+ ['Tengo que estudiar mucho','나는 공부를 많이 해야 해.','I have to study a lot.'],
+ ['Vamos a jugar al fútbol','우리는 축구를 할 거야.','We are going to play soccer.'],
+ ['Ella acaba de comer','그녀는 방금 먹었어.','She has just eaten.'],
+ ['Quiero dormir ocho horas','나는 8시간 자고 싶어.','I want to sleep eight hours.'],
+ ['Puedes volver mañana','너는 내일 돌아올 수 있어.','You can come back tomorrow.'],
+ ['Empiezo a leer el libro','나는 책을 읽기 시작해.','I start to read the book.'],
+ ['Hay que hacer la tarea','숙제를 해야 해.','One must do the homework.'],
+ ['Prefiero ir al cine','나는 영화관에 가는 게 더 좋아.','I prefer to go to the movies.'],
+ ['Trato de hablar español','나는 스페인어로 말하려고 노력해.','I try to speak Spanish.'],
+ ['Aprendemos a bailar salsa','우리는 살사 추는 법을 배워.','We are learning to dance salsa.']
+];
+const GF={gustar:['gusta','gustan','gusto','gustas'],aburrir:['aburre','aburren','aburro','aburres'],interesar:['interesa','interesan','intereso','interesas']};
+const GQ=[
+ ['Me ___ el chocolate.','gustar','s','나는 초콜릿을 좋아해.','I like chocolate.'],
+ ['Me ___ los perros.','gustar','p','나는 개를 좋아해.','I like dogs.'],
+ ['¿Te ___ la música?','gustar','s','너 음악 좋아해?','Do you like music?'],
+ ['Me ___ bailar y cantar.','gustar','i','나는 춤추고 노래하는 걸 좋아해.','I like to dance and sing.'],
+ ['Me ___ las matemáticas.','aburrir','p','나는 수학이 지루해.','Math bores me.'],
+ ['Me ___ la película.','aburrir','s','나는 그 영화가 지루해.','The movie bores me.'],
+ ['¿Te ___ los deportes?','interesar','p','너 스포츠에 관심 있어?','Are you interested in sports?'],
+ ['Me ___ la historia.','interesar','s','나는 역사에 관심 있어.','History interests me.'],
+ ['Me ___ jugar al fútbol.','gustar','i','나는 축구하는 걸 좋아해.','I like to play soccer.'],
+ ['No me ___ los lunes.','gustar','p','나는 월요일이 싫어.','I don\'t like Mondays.'],
+ ['Me ___ estudiar.','aburrir','i','나는 공부하는 게 지루해.','Studying bores me.'],
+ ['Me ___ aprender español.','interesar','i','나는 스페인어 배우는 데 관심 있어.','Learning Spanish interests me.'],
+ ['¿Te ___ las fresas?','gustar','p','너 딸기 좋아해?','Do you like strawberries?'],
+ ['Me ___ los videojuegos.','interesar','p','나는 비디오게임에 관심 있어.','Video games interest me.'],
+ ['No me ___ los libros.','aburrir','p','나는 책이 지루하지 않아.','Books don\'t bore me.'],
+ ['¿Te ___ la clase de historia?','aburrir','s','너 역사 수업 지루해?','Does history class bore you?'],
+ ['Me ___ leer y escribir.','interesar','i','나는 읽고 쓰는 데 관심 있어.','Reading and writing interest me.'],
+ ['Te ___ el arte.','interesar','s','너는 미술에 관심 있구나.','Art interests you.']
+];
+const PRON=[
+ ['¿Te gusta el fútbol? — Sí, ___ gusta.','me',['te','yo','tú']],
+ ['¿___ gustan los gatos? — Sí, me gustan.','Te',['Me','Tú','Yo']],
+ ['¿Te aburre la clase? — No, no ___ aburre.','me',['te','yo','mi']],
+ ['¿___ interesa la música? — Sí, me interesa mucho.','Te',['Me','Tú','Tu']],
+ ['(I like) ___ gusta bailar.','Me',['Yo','Te','Mi']],
+ ['(You like) ___ gustan las películas.','Te',['Tú','Me','Tu']],
+ ['¿Te interesan los deportes? — Sí, ___ interesan.','me',['te','yo','tú']],
+ ['(It bores you) ___ aburre la tarea.','Te',['Tú','Me','Yo']]
+];
+const QA=[
+ ['¿Te gustan los tacos?','Sí, me gustan.',['Sí, te gustan.','Sí, me gusta.','Sí, yo gusto.']],
+ ['¿Te interesa el arte?','No, no me interesa.',['No, no te interesa.','No, no me interesan.','No, me no interesa.']],
+ ['¿Te gusta nadar?','Sí, me gusta nadar.',['Sí, me gustan nadar.','Sí, te gusta nadar.','Sí, yo gusto nadar.']],
+ ['¿Te aburren las matemáticas?','No, no me aburren.',['No, no me aburre.','No, no te aburren.','No, no aburro.']],
+ ['¿Te gusta la pizza?','Sí, me gusta mucho.',['Sí, me gustan mucho.','Sí, te gusta mucho.','Sí, gusto mucho.']]
+];
+const ORD4=[
+ ['Me gusta jugar al fútbol','나는 축구하는 걸 좋아해.','I like to play soccer.'],
+ ['No me gustan los lunes','나는 월요일이 싫어.','I don\'t like Mondays.'],
+ ['¿Te interesa la música?','너 음악에 관심 있어?','Are you interested in music?'],
+ ['Me aburren las películas largas','나는 긴 영화가 지루해.','Long movies bore me.'],
+ ['¿Te gusta bailar?','너 춤추는 거 좋아해?','Do you like to dance?'],
+ ['Me interesan los deportes','나는 스포츠에 관심 있어.','Sports interest me.'],
+ ['No me aburre la clase','나는 수업이 지루하지 않아.','The class doesn\'t bore me.'],
+ ['¿Te gustan los perros?','너 개 좋아해?','Do you like dogs?']
+];
+
+/* ============ question generators ============ */
+const tag=(n,a)=>a.map(q=>(q.tp=n,q));
+function genMeaning(n){return tag(1,sample(V,n).map((v,k)=>{const o=sample(V.filter(x=>x!==v),3);
+ return k%2?{t:'mc',q:`<div class="big">${B(v.ko,v.en)}</div><p>${B('스페인어로는?','In Spanish?')}</p>`,opts:[{h:v.inf,ok:1},...o.map(x=>({h:x.inf}))],ans:v.inf,say:v.inf}
+ :{t:'mc',q:`<div class="big es">${v.inf}</div><p>${B('무슨 뜻일까요?','What does it mean?')}</p>`,opts:[{h:B(v.ko,v.en),ok:1},...o.map(x=>({h:B(x.ko,x.en)}))],ans:`${v.inf} = ${B(v.ko,v.en)}`,say:v.inf};}));}
+function combos(n){const all=[];V.forEach(v=>P5.forEach(i=>all.push([v,i])));return sample(all,n);}
+const bootEx=(v,i)=>isBoot(i)?B(`👢 부츠 안! ${v.ch} 변화`,`👢 Inside the boot! ${v.ch}`):B('부츠 밖(nosotros) → 어간이 변하지 않아요!','Outside the boot (nosotros) → no stem change!');
+const conjQ=(v,i)=>`<span class="pill">${PR[i]}</span> + <span class="es">${v.inf}</span>`;
+function genConjMC(n){return tag(1,combos(n).map(([v,i])=>{const c=conj(v,i),e=END[v.inf.slice(-2)][i];
+ const d=uniq([(isBoot(i)?v.s:v.c)+e,...shuffle(P5.filter(x=>x!==i)).map(x=>conj(v,x))]).filter(x=>x!==c).slice(0,3);
+ return {t:'mc',q:conjQ(v,i),opts:[{h:c,ok:1},...d.map(h=>({h}))],ans:c,say:c,ex:bootEx(v,i)};}));}
+function genConjType(n){return tag(1,combos(n).map(([v,i])=>{const c=conj(v,i);
+ return {t:'type',q:conjQ(v,i)+`<p>${B(v.ko,v.en)}</p>`,a:[c],ans:c,say:c,ex:bootEx(v,i)};}));}
+function genSent(n){return tag(1,sample(SENT,n).map(s=>({t:'type',q:s[0].replace('___',BL)+`<p><span class="pill">${s[1]}</span> ${B(s[3],s[4])}</p>`,a:[s[2]],ans:s[0].replace('___',s[2]),say:s[0].replace('___',s[2])})));}
+function genAl(n){return tag(2,sample(PLACES,n).map(p=>{const S=pick(SUBJ2),c=prep(p),full=`${S.es} ${S.ir} ${c} ${p.es}.`;
+ return {t:'mc',q:`${S.es} ${S.ir} ${BL} ${p.es}.<p>${B(p.ko,p.en)}</p>`,opts:[{h:'al',ok:c==='al'},{h:'a la',ok:c==='a la'},{h:'a el'},{h:'de la'}],ans:full,say:full,
+  ex:p.g==='m'?B(`<b>el</b> ${p.es} (남성) → a + el = <b>al</b>`,`<b>el</b> ${p.es} (masculine) → a + el = <b>al</b>`):B(`<b>la</b> ${p.es} (여성) → <b>a la</b>`,`<b>la</b> ${p.es} (feminine) → <b>a la</b>`)};}));}
+function genIr(n){return tag(2,sample(SUBJ2,n).map(S=>{const p=pick(PLACES),full=`${S.es} ${S.ir} ${prep(p)} ${p.es}.`;
+ const d=sample(['voy','vas','va','vamos','van','ir'].filter(x=>x!==S.ir),3);
+ return {t:'mc',q:`${S.es} ${BL} ${prep(p)} ${p.es}.`,opts:[{h:S.ir,ok:1},...d.map(h=>({h}))],ans:full,say:full};}));}
+function genIrWrite(n){return tag(2,sample(PLACES,n).map(p=>{const S=pick(SUBJ),core=`${S.ir} ${prep(p)} ${p.es}`,a=[core,`${S.es} ${core}`];
+ if(S.es==='Ellos')a.push('Ellas '+core);
+ return {t:'type',q:`${B(`${S.ko} ${p.ko}에 가.`,`${S.en} to the ${p.en}.`)}<p>${B('스페인어 문장으로 써 보세요','Write the sentence in Spanish')} · <span class="pill">${p.g==='m'?'el':'la'} ${p.es}</span></p>`,a,ans:`${S.es} ${core}.`,say:`${S.es} ${core}.`,
+  ex:p.g==='m'?'a + el = <b>al</b>':'a + la = <b>a la</b>'};}));}
+function genInf(n){const pool=REG.concat(V.map(v=>[v.inf,conj(v,0),conj(v,1),conj(v,5)]));
+ return tag(3,sample(pool,n).map(r=>({t:'mc',q:B('동사원형(infinitive)은 어느 것?','Which one is the infinitive?'),opts:r.map((h,k)=>({h,ok:k===0})),ans:r[0],say:r[0],ex:B(`동사원형은 <b>-${r[0].slice(-2)}</b>로 끝나요.`,`An infinitive ends in <b>-${r[0].slice(-2)}</b>.`)})));}
+function genPrep(n){return tag(3,sample(PREPQ,n).map(s=>{const full=`${s[0]} ${s[2]==='∅'?'':s[2]+' '}${s[1]}`;
+ return {t:'mc',q:`${s[0]} ${BL} ${s[1]}<p>${B(s[3],s[4])}</p>`,opts:['a','de','que','∅'].map(h=>({h:h==='∅'?B('∅ (아무것도 없음)','∅ (nothing)'):h,ok:h===s[2]})),ans:full,say:full};}));}
+function genTwo(n){return tag(3,sample(TWO,n).map(s=>({t:'mc',q:B('올바른 문장을 고르세요','Choose the correct sentence'),opts:[{h:s[0],ok:1},...s[1].map(h=>({h}))],ans:s[0],say:s[0],ex:B('첫 번째 동사만 변화시키고, 두 번째는 원형 그대로!','Conjugate the 1st verb, leave the 2nd as an infinitive!')})));}
+function genOrd(list,n,tp){return tag(tp,sample(list,n).map(s=>({t:'order',q:B(s[1],s[2])+`<p>${B('단어를 눌러 문장을 만드세요','Tap the words to build the sentence')}</p>`,words:s[0].split(' '),ans:s[0],say:s[0]})));}
+function genGusta(n){const EX={s:B('단수 명사 → 단수형','Singular noun → singular verb'),p:B('복수 명사 → <b>-n</b>을 붙여요!','Plural noun → add <b>-n</b>!'),i:B('동사원형(활동)은 여러 개여도 항상 단수형!','Infinitives (activities) always take the singular — even two of them!')};
+ return tag(4,sample(GQ,n).map(s=>{const f=GF[s[1]],c=f[s[2]==='p'?1:0],full=s[0].replace('___',c);
+ return {t:'mc',q:s[0].replace('___',BL)+`<p>${B(s[3],s[4])}</p>`,opts:f.map(h=>({h,ok:h===c})),ans:full,say:full,ex:EX[s[2]]};}));}
+function genPron(n){const a=PRON.map(s=>({t:'mc',q:s[0].replace('___',BL),opts:[{h:s[1],ok:1},...s[2].map(h=>({h}))],ans:s[0].replace('___',s[1]),say:s[0].replace('___',s[1]).replace(/\(.*?\)/,''),ex:B('me = 나에게 / te = 너에게. yo, tú는 쓰지 않아요!','me = to me / te = to you. Never yo or tú here!')}))
+ .concat(QA.map(s=>({t:'mc',q:`${s[0]}<p>${B('알맞은 대답은?','Choose the best answer')}</p>`,opts:[{h:s[1],ok:1},...s[2].map(h=>({h}))],ans:s[1],say:s[0]+' '+s[1],ex:B('¿Te…? 로 물으면 me…로 대답!','Asked with ¿Te…? → answer with me…!')})));
+ return tag(4,sample(a,n));}
+function genFinal(){return shuffle([].concat(genMeaning(2),genConjMC(2),genConjType(2),genSent(2),genAl(2),genIr(1),genIrWrite(2),genInf(1),genPrep(3),genTwo(1),genOrd(ORD3,1,3),genGusta(3),genPron(2),genOrd(ORD4,1,4)));}
+
+const QUIZ={
+ m1:{tp:1,e:'🃏',title:B('뜻 맞히기','Meanings'),gen:()=>genMeaning(10)},
+ c1:{tp:1,e:'👢',title:B('변화형 고르기','Pick the right form'),gen:()=>genConjMC(10)},
+ t1:{tp:1,e:'⌨️',title:B('변화형 직접 쓰기','Type the form'),gen:()=>genConjType(10)},
+ s1:{tp:1,e:'✍️',title:B('문장 완성하기','Complete the sentence'),gen:()=>genSent(10)},
+ a2:{tp:2,e:'🧭',title:B('al vs a la','al vs a la'),gen:()=>genAl(10)},
+ i2:{tp:2,e:'🚶',title:B('ir 변화형','Forms of ir'),gen:()=>genIr(8)},
+ w2:{tp:2,e:'✍️',title:B('문장 직접 쓰기','Write the sentence'),gen:()=>genIrWrite(8)},
+ r3:{tp:3,e:'🔎',title:B('동사원형 찾기','Spot the infinitive'),gen:()=>genInf(8)},
+ p3:{tp:3,e:'🧩',title:B('a / de / que / ∅ 고르기','a / de / que / nothing'),gen:()=>genPrep(12)},
+ v3:{tp:3,e:'👯',title:B('동사 두 개 규칙','Two-verb rule'),gen:()=>genTwo(8)},
+ o3:{tp:3,e:'🧱',title:B('문장 만들기','Build sentences'),gen:()=>genOrd(ORD3,8,3)},
+ g4:{tp:4,e:'💛',title:B('gusta vs gustan','gusta vs gustan'),gen:()=>genGusta(12)},
+ n4:{tp:4,e:'💬',title:B('me / te 묻고 답하기','me / te Q&A'),gen:()=>genPron(10)},
+ o4:{tp:4,e:'🧱',title:B('문장 만들기','Build sentences'),gen:()=>genOrd(ORD4,8,4)},
+ final:{tp:0,e:'🏆',title:B('실전 모의고사 (25문제)','Mock exam (25 questions)'),gen:genFinal}
+};
+const TOPIC={1:{e:'👢',n:B('어간변화 동사','Stem-changing verbs'),c:'y'},2:{e:'🚶',n:B('ir 동사 + 장소','El verbo ir + place'),c:'t'},3:{e:'🔗',n:B('동사원형 표현','Expressions + infinitive'),c:'p'},4:{e:'💛',n:'Gustar · aburrir · interesar',c:'r'}};
+const stars=p=>p>=90?'⭐⭐⭐':p>=70?'⭐⭐☆':p>=50?'⭐☆☆':'☆☆☆';
+const topicPct=t=>{const k=Object.keys(QUIZ).filter(k=>QUIZ[k].tp===t);return Math.round(k.reduce((s,x)=>s+(save.best[x]||0),0)/k.length);};
+const qbtn=k=>`<button class="qbtn" onclick="startQuiz('${k}')"><span>${QUIZ[k].e}</span>${QUIZ[k].title}<span class="s">${save.best[k]!=null?stars(save.best[k])+' '+save.best[k]+'%':B('도전!','Start!')}</span></button>`;
+const qlist=t=>Object.keys(QUIZ).filter(k=>QUIZ[k].tp===t).map(qbtn).join('');
+
+/* ============ sections ============ */
+let cur='home',tblV=0,fl={i:0,back:false},M=null;
+function vHome(){return `
+<div class="card hero"><div>${B('스페인어 시험 완전 정복','Spanish Exam Prep')}</div><div class="big">EXAMEN #2</div><div>${B('11월 13일 (금)','Friday, November 13')}</div></div>
+<div class="grid">${[1,2,3,4].map(t=>`<button class="card tcard ${TOPIC[t].c}" onclick="go('t${t}')"><span class="emo">${TOPIC[t].e}</span><b>${t}. ${TOPIC[t].n}</b><div class="meter"><i style="width:${topicPct(t)}%"></i></div><small>${topicPct(t)}%</small></button>`).join('')}</div>
+<div class="card" style="margin-top:16px"><h3>🗺️ ${B('이렇게 공부해요','How to study')}</h3>
+<ul><li>${B('주제 1→4 순서로 <b>설명 읽기 → 연습 게임</b>','Go through topics 1→4: <b>read → play the drills</b>')}</li><li>${B('각 게임 ⭐⭐⭐ (90% 이상) 받기','Get ⭐⭐⭐ (90%+) on every drill')}</li><li>${B('마지막에 🏆 실전 모의고사로 점검','Finish with the 🏆 mock exam')}</li></ul></div>
+<div class="card r"><h3>⚠️ ${B('자주 틀리는 함정 TOP 5','Top 5 traps')}</h3>
+<ul>
+<li>${B('nosotros는 어간이 안 변해요','nosotros has no stem change')}: <span class="es">pensamos</span> (✗ piensamos)</li>
+<li>${B('jugar는 u→ue','jugar is u→ue')}: <span class="es">juego</span> (✗ jogo)</li>
+<li>a + el = <span class="es">al</span> (✗ a el banco)</li>
+<li>${B('두 번째 동사는 원형','2nd verb stays infinitive')}: <span class="es">Quiero comer</span> (✗ Quiero como)</li>
+<li><span class="es">Me gusta</span> (✗ Yo gusto) · ${B('복수 명사는','plural nouns →')} <span class="es">Me gustan</span></li>
+</ul></div>
+<button class="primary" onclick="go('final')">🏆 ${B('실전 모의고사 보러 가기','Go to the mock exam')}</button>`;}
+function bootTable(){const v=V[tblV],e=END[v.inf.slice(-2)];
+ const cell=i=>`<div class="${isBoot(i)?'in':''} ${i===4?'dim':''}" data-say="${conj(v,i)}"><small>${PR[i]}</small><b>${isBoot(i)?v.c.replace(/(ie|ue)/,'<u>$1</u>'):v.s}${e[i]}</b></div>`;
+ return `<div class="chips">${V.map((x,k)=>`<button class="chip ${k===tblV?'sel':''}" onclick="tblV=${k};render()">${x.inf}</button>`).join('')}</div>
+ <p><span class="es" style="font-size:1.3rem">${v.inf}</span> ${sayBtn(v.inf)} <span class="pill">${v.ch}</span> — ${B(v.ko,v.en)}</p>
+ <div class="boot">${[0,3,1,4,2,5].map(cell).join('')}</div>
+ <p><small>${B('노란 칸 = 부츠 안(변화함) · 칸을 누르면 발음이 나와요 · vosotros는 참고용','Yellow = inside the boot (changes) · tap a cell to hear it · vosotros is for reference')}</small></p>`;}
+function flashCard(){const v=V[fl.i];return `<div class="flash" onclick="fl.back=!fl.back;render()">${fl.back?`<div class="big" style="font-size:1.4rem">${B(v.ko,v.en)}</div><div><span class="pill">${v.ch}</span> yo <b class="es">${conj(v,0)}</b> · nosotros <b class="es">${conj(v,3)}</b></div>`:`<div class="big es">${v.inf}</div><small>${B('눌러서 뒤집기','Tap to flip')}</small>`}</div>
+ <div class="row"><button class="mini" onclick="flMove(-1)">←</button><span>${fl.i+1} / ${V.length}</span><button class="mini" data-say="${v.inf}">🔊</button><button class="mini" onclick="flMove(1)">→</button></div>`;}
+function flMove(d){fl={i:(fl.i+d+V.length)%V.length,back:false};render();}
+function newMatch(){const vs=sample(V,6);M={cards:shuffle(vs.flatMap((v,k)=>[{k,h:v.inf},{k,h:B(v.ko,v.en)}])),open:null,gone:[],moves:0,lock:false};}
+function matchView(){if(!M)newMatch();const done=M.gone.length===12;
+ return `<div class="match">${M.cards.map((c,i)=>`<button class="${M.gone.includes(i)?'gone':M.open===i||M.peek===i?'open':''}" onclick="matchClick(${i})">${c.h}</button>`).join('')}</div>
+ <div class="row"><span>${B('시도','Moves')}: ${M.moves}</span>${done?`<b>🎉 ¡Bravo!</b>`:''}<button class="mini" onclick="M=null;render()">${B('새 게임','New game')}</button></div>`;}
+function matchClick(i){if(M.lock||M.gone.includes(i)||M.open===i)return;
+ if(M.open==null){M.open=i;return render();}
+ M.moves++;const a=M.open;
+ if(M.cards[a].k===M.cards[i].k){M.gone.push(a,i);M.open=null;if(M.gone.length===12)confetti();render();}
+ else{M.peek=i;M.lock=true;render();setTimeout(()=>{M.open=null;M.peek=null;M.lock=false;render();},650);}}
+function vT1(){return `<h2>👢 1. ${TOPIC[1].n}</h2>
+<div class="card y"><h3>${B('어간변화 동사란?','What is a stem-changing verb?')}</h3>
+<p>${B('동사를 변화시킬 때 <b>어간의 모음</b>이 바뀌는 동사예요. 어미(-o, -as, -a…)는 규칙 동사와 똑같아요.','When you conjugate, the <b>vowel in the stem</b> changes. The endings (-o, -as, -a…) are the same as regular verbs.')}</p>
+<div class="formula">e → <span class="es">ie</span> &nbsp;·&nbsp; o → <span class="es">ue</span> &nbsp;·&nbsp; (jugar) u → <span class="es">ue</span></div>
+<p>👢 ${B('<b>부츠 동사</b>: yo, tú, él, ellos 만 변하고 <b>nosotros(·vosotros)는 변하지 않아요.</b> 표에서 변하는 칸을 이으면 부츠 모양!','<b>Boot verbs</b>: yo, tú, él, ellos change — <b>nosotros (and vosotros) do NOT.</b> The changing cells form a boot shape!')}</p></div>
+<div class="card"><h3>📋 ${B('동사 10개 변화표','All 10 verbs')}</h3>${bootTable()}</div>
+<div class="card t"><h3>💡 ${B('꼭 기억할 것','Remember')}</h3><ul>
+<li>${B('<b>jugar</b>는 시험범위에서 o→ue 그룹에 있지만 실제로는 <b>u→ue</b>','<b>jugar</b> is listed with the o→ue group, but it is really <b>u→ue</b>')}: juego, juegas, juega, <u>jugamos</u>, juegan</li>
+<li><b>volver</b> = ${B('(사람이) 돌아오다','to come back (a person)')} / <b>devolver</b> = ${B('(물건을) 돌려주다','to give something back')}</li>
+<li><b>perder</b> = ${B('잃어버리다, (경기에서) 지다','to lose (things or a game)')}</li>
+<li><b>preferir</b>, <b>dormir</b>${B('는 -ir 동사 → nosotros: prefer<b>imos</b>, dorm<b>imos</b>','are -ir verbs → nosotros: prefer<b>imos</b>, dorm<b>imos</b>')}</li></ul></div>
+<div class="card"><h3>🃏 ${B('단어 카드','Flashcards')}</h3>${flashCard()}</div>
+<div class="card"><h3>🧠 ${B('짝 맞추기 게임','Matching game')}</h3>${matchView()}</div>
+<div class="card p"><h3>🎮 ${B('연습 게임','Practice drills')}</h3>${qlist(1)}</div>`;}
+function vT2(){return `<h2>🚶 2. ${TOPIC[2].n}</h2>
+<div class="card t"><h3>ir = ${B('가다 (불규칙!)','to go (irregular!)')}</h3>
+<div class="boot">${[0,3,1,4,2,5].map(i=>`<div class="${i===4?'dim':''}" data-say="${IR[i]}"><small>${PR[i]}</small><b>${IR[i]}</b></div>`).join('')}</div></div>
+<div class="card y"><h3>${B('~에 가다','To go to the [place]')}</h3>
+<div class="formula">ir + <span class="es">a</span> + el/la + ${B('장소','place')}</div>
+<div class="formula">a + el = <span class="es" style="font-size:1.5rem">al</span> &nbsp;|&nbsp; a + la = <span class="es" style="font-size:1.5rem">a la</span></div>
+<ul><li>${B('남성 명사 (보통 -o)','Masculine noun (usually -o)')}: <span class="es">Voy al banco.</span> ${sayBtn('Voy al banco.')}</li>
+<li>${B('여성 명사 (보통 -a)','Feminine noun (usually -a)')}: <span class="es">Voy a la escuela.</span> ${sayBtn('Voy a la escuela.')}</li>
+<li>⚠️ ${B('-o/-a로 안 끝나는 단어는 성을 외워야 해요','Words not ending in -o/-a: memorize the gender')}: el cine, el parque, el restaurante, el hospital, el café</li></ul></div>
+<div class="card"><h3>📍 ${B('장소 단어 (누르면 문장이 들려요)','Place words (tap to hear a sentence)')}</h3>
+<p><span class="chip m">${B('남성 → al','masculine → al')}</span> <span class="chip f">${B('여성 → a la','feminine → a la')}</span></p>
+<div class="chips">${PLACES.map(p=>`<button class="chip ${p.g}" data-say="Voy ${prep(p)} ${p.es}.">${p.es} <small>${B(p.ko,p.en)}</small></button>`).join('')}</div></div>
+<div class="card p"><h3>🎮 ${B('연습 게임','Practice drills')}</h3>${qlist(2)}</div>`;}
+function vT3(){return `<h2>🔗 3. ${TOPIC[3].n}</h2>
+<div class="card p"><h3>① ${B('동사원형 알아보기','Recognize an infinitive')}</h3>
+<p>${B('동사원형(infinitivo)은 변화시키지 않은 기본형이에요. 항상 아래 셋 중 하나로 끝나요.','An infinitive is the unconjugated form. It always ends in one of these:')}</p>
+<div class="formula"><span class="es">-ar</span> hablar · <span class="es">-er</span> comer · <span class="es">-ir</span> vivir</div></div>
+<div class="card y"><h3>② ${B('동사 두 개 규칙','The two-verb rule')}</h3>
+<div class="formula">🚶🚶 “When two verbs go walking,<br>the first one does the talking”</div>
+<p>${B('동사가 연달아 나오면 <b>첫 번째만 변화</b>시키고, <b>두 번째는 원형</b> 그대로 둬요.','When two verbs come together, <b>conjugate the 1st</b> and leave <b>the 2nd as an infinitive</b>.')}</p>
+<ul><li>✅ <span class="es">Quiero comer.</span> ${sayBtn('Quiero comer.')} &nbsp; ❌ Quiero como.</li><li>✅ <span class="es">Tengo que estudiar.</span> ${sayBtn('Tengo que estudiar.')} &nbsp; ❌ Tengo que estudio.</li></ul></div>
+<div class="card"><h3>③ ${B('어떤 동사에 a / de / que 가 붙을까?','Which 1st verbs take a / de / que?')}</h3>
+<table><tr><th>${B('연결','Link')}</th><th>${B('표현 + 동사원형','Expression + infinitive')}</th></tr>
+${EXPR.map(g=>`<tr><td><b class="es" style="font-size:1.2rem">${g.g==='∅'?B('없음','none'):g.g}</b></td><td>${g.list.map(x=>`<b>${x[0]}</b> <small>${B(x[1],x[2])}</small>`).join('<br>')}</td></tr>`).join('')}</table>
+<p><small>⚠️ ${B('선생님이 나눠주신 표와 비교해서, 표에 있는 동사를 우선으로 외우세요.','Compare with the table your teacher attached and prioritize the verbs on it.')}</small></p></div>
+<div class="card t"><h3>💡 ${B('암기 팁','Memory tips')}</h3><ul>
+<li>${B('<b>a</b> = 앞으로 나아가는 느낌 (갈 거다·시작하다·배우다)','<b>a</b> = moving toward something (going to, start, learn)')}</li>
+<li>${B('<b>de</b> = 끝나거나 떨어지는 느낌 (방금 했다·그만두다)','<b>de</b> = finishing / moving away (have just, stop)')}</li>
+<li>${B('<b>que</b> = 의무 (tener que, hay que)','<b>que</b> = obligation (tener que, hay que)')}</li></ul></div>
+<div class="card p"><h3>🎮 ${B('연습 게임','Practice drills')}</h3>${qlist(3)}</div>`;}
+function vT4(){return `<h2>💛 4. Gustar · aburrir · interesar</h2>
+<div class="card r"><h3>${B('"의견" 동사는 거꾸로 생각해요','"Opinion" verbs work backwards')}</h3>
+<p>${B('<span class="es">Me gusta el chocolate</span> = "초콜릿이 <b>나에게</b> 즐거움을 준다". 그래서 동사는 <b>좋아하는 대상</b>에 맞춰요.','<span class="es">Me gusta el chocolate</span> = "Chocolate is pleasing <b>to me</b>." So the verb matches <b>the thing liked</b>, not the person.')}</p>
+<table><tr><th></th><th>gustar<br><small>${B('좋아하다','to like')}</small></th><th>aburrir<br><small>${B('지루하다','to bore')}</small></th><th>interesar<br><small>${B('관심 있다','to interest')}</small></th></tr>
+<tr><td>${B('단수 명사 / 동사원형','singular noun / infinitive')}</td><td><b class="es">gusta</b></td><td><b class="es">aburre</b></td><td><b class="es">interesa</b></td></tr>
+<tr><td>${B('복수 명사','plural noun')}</td><td><b class="es">gustan</b></td><td><b class="es">aburren</b></td><td><b class="es">interesan</b></td></tr></table></div>
+<div class="card y"><h3>me / te</h3>
+<div class="formula"><span class="es">me</span> = ${B('나에게','to me')} &nbsp;·&nbsp; <span class="es">te</span> = ${B('너에게','to you')}</div>
+<ul><li>— ¿<b>Te</b> gusta el fútbol? ${sayBtn('¿Te gusta el fútbol?')}</li><li>— Sí, <b>me</b> gusta. / No, no <b>me</b> gusta. ${sayBtn('Sí, me gusta. No, no me gusta.')}</li>
+<li>⚠️ ${B('부정은 <b>no</b>가 me/te 앞에','Negative: <b>no</b> goes before me/te')}: <span class="es">No me gustan los lunes.</span></li><li>❌ Yo gusto · ❌ Tú gustas</li></ul></div>
+<div class="card t"><h3>${B('세 가지 패턴','Three patterns')}</h3><ul>
+<li>${B('단수 명사','Singular noun')}: <span class="es">Me gusta <b>la</b> música.</span> ${sayBtn('Me gusta la música.')}</li>
+<li>${B('복수 명사','Plural noun')}: <span class="es">Me gusta<b>n</b> <b>los</b> perros.</span> ${sayBtn('Me gustan los perros.')}</li>
+<li>${B('활동(동사원형)','Activity (infinitive)')}: <span class="es">Me gusta bailar y cantar.</span> ${sayBtn('Me gusta bailar y cantar.')} — ${B('동사원형은 여러 개여도 항상 <b>gusta</b>!','always <b>gusta</b>, even with two infinitives!')}</li>
+<li>${B('명사 앞에는 el/la/los/las를 꼭 붙여요.','Always use el/la/los/las before the noun.')}</li>
+<li><span class="es">Me aburre la clase.</span> = ${B('수업이 지루해.','The class bores me.')} · <span class="es">Me interesan los deportes.</span> = ${B('스포츠에 관심 있어.','Sports interest me.')}</li></ul></div>
+<div class="card p"><h3>🎮 ${B('연습 게임','Practice drills')}</h3>${qlist(4)}</div>`;}
+function vFinal(){return `<h2>🏆 ${B('실전 모의고사','Mock exam')}</h2>
+<div class="card y"><p>${B('4개 주제에서 골고루 25문제가 나와요. 매번 문제가 바뀌니 여러 번 도전해 보세요!','25 questions mixed from all 4 topics. The questions change every time — try it more than once!')}</p>${qbtn('final')}</div>
+<div class="card"><h3>📊 ${B('주제별 달성도','Progress by topic')}</h3>${[1,2,3,4].map(t=>`<p style="margin:10px 0 0">${TOPIC[t].e} ${TOPIC[t].n} — <b>${topicPct(t)}%</b></p><div class="meter"><i style="width:${topicPct(t)}%"></i></div>`).join('')}
+<button class="mini" style="margin-top:14px" onclick="resetAll()">${B('기록 초기화','Reset progress')}</button></div>
+<div class="card t"><h3>✅ ${B('시험 직전 체크리스트','Last-minute checklist')}</h3><ul>
+<li>${B('동사 10개의 뜻과 5개 인칭 변화를 쓸 수 있다','I can write meanings and forms of all 10 verbs')}</li>
+<li>${B('voy, vas, va, vamos, van + al / a la','voy, vas, va, vamos, van + al / a la')}</li>
+<li>${B('a / de / que 가 붙는 동사를 구분할 수 있다','I know which verbs take a / de / que')}</li>
+<li>${B('me/te + gusta(n), aburre(n), interesa(n)','me/te + gusta(n), aburre(n), interesa(n)')}</li></ul><p class="big" style="font-size:1.4rem">¡Buena suerte! 🍀</p></div>`;}
+const VIEW={home:vHome,t1:vT1,t2:vT2,t3:vT3,t4:vT4,final:vFinal};
+const NAV=[['home','🏠','Inicio'],['t1','👢','1'],['t2','🚶','2'],['t3','🔗','3'],['t4','💛','4'],['final','🏆','Final']];
+function render(){$('#main').innerHTML=VIEW[cur]();$('#nav').innerHTML=NAV.map(n=>`<button class="${cur===n[0]?'on':''}" onclick="go('${n[0]}')"><i>${n[1]}</i>${n[2]}</button>`).join('');}
+function go(id){cur=id;render();window.scrollTo(0,0);}
+function toggleLang(){const en=document.body.classList.toggle('en');document.body.classList.toggle('ko',!en);save.lang=en?'en':'ko';store.set(save);}
+function resetAll(){save.best={};store.set(save);render();}
+function speak(t){try{const u=new SpeechSynthesisUtterance(t);u.lang='es-ES';const v=speechSynthesis.getVoices().find(v=>/^es/i.test(v.lang));if(v){u.voice=v;u.lang=v.lang;}u.rate=.9;speechSynthesis.cancel();speechSynthesis.speak(u);}catch(e){}}
+
+/* ============ quiz engine ============ */
+let QZ=null;
+function startQuiz(key){QZ={key,qs:QUIZ[key].gen(),i:0,ok:0,streak:0,wrong:[],tp:{}};$('#quiz').hidden=false;document.body.style.overflow='hidden';renderQ();}
+function closeQuiz(){$('#quiz').hidden=true;document.body.style.overflow='';QZ=null;render();}
+function renderQ(){const z=QZ,q=z.qs[z.i];z.done=false;let body='';
+ if(q.t==='mc'){q._o=shuffle(q.opts);body=`<div class="opts">${q._o.map((o,k)=>`<button class="opt" onclick="ansMC(${k})">${o.h}</button>`).join('')}</div>`;}
+ else if(q.t==='type'){body=`<input id="ti" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" onkeydown="if(event.key==='Enter')ansType()"><div class="acc">${'áéíóúñ'.split('').map(c=>`<button onclick="addCh('${c}')">${c}</button>`).join('')}</div><button class="primary" id="chk" onclick="ansType()">${B('확인','Check')}</button>`;}
+ else{let p=shuffle(q.words),n=0;while(p.join(' ')===q.words.join(' ')&&n++<10)p=shuffle(q.words);q._pool=p;q._sel=[];body=`<div id="ansline" class="ansline"></div><div id="pool" class="pool"></div><button class="primary" id="chk" onclick="ansOrder()">${B('확인','Check')}</button>`;}
+ $('#quiz').innerHTML=`<div class="qwrap"><div class="qtop"><button class="x" onclick="closeQuiz()">✕</button><div class="bar"><i style="width:${z.i/z.qs.length*100}%"></i></div><span>${z.i+1}/${z.qs.length}</span><span>🔥${z.streak}</span></div><div class="card"><div class="qtext">${q.q}</div>${body}<div id="fb"></div></div></div>`;
+ $('#quiz').scrollTop=0;
+ if(q.t==='order')drawOrder();if(q.t==='type')$('#ti').focus();}
+function addCh(c){const t=$('#ti');if(!t||QZ.done)return;t.value+=c;t.focus();}
+function drawOrder(){const q=QZ.qs[QZ.i];
+ $('#ansline').innerHTML=q._sel.map((k,j)=>`<button class="chip on" onclick="ordRm(${j})">${q._pool[k]}</button>`).join('')||`<span class="ph">${B('아래 단어를 순서대로 눌러요','Tap the words below in order')}</span>`;
+ $('#pool').innerHTML=q._pool.map((w,k)=>`<button class="chip" ${q._sel.includes(k)?'disabled':''} onclick="ordAdd(${k})">${w}</button>`).join('');}
+function ordAdd(k){if(QZ.done)return;QZ.qs[QZ.i]._sel.push(k);drawOrder();}
+function ordRm(j){if(QZ.done)return;QZ.qs[QZ.i]._sel.splice(j,1);drawOrder();}
+function ansMC(k){const z=QZ,q=z.qs[z.i];if(z.done)return;
+ document.querySelectorAll('.opt').forEach((b,j)=>{b.disabled=true;if(q._o[j].ok)b.classList.add('ok');else if(j===k)b.classList.add('bad');});feedback(!!q._o[k].ok);}
+function ansType(){const z=QZ,q=z.qs[z.i];if(z.done)return nextQ();const v=norm($('#ti').value);if(!v)return;
+ const ok=q.a.some(a=>norm(a)===v),soft=!ok&&q.a.some(a=>noAcc(norm(a))===noAcc(v));$('#ti').disabled=true;
+ feedback(ok||soft,soft?`<div>⚠️ ${B('악센트 표시에 주의!','Watch the accent marks!')} → <b class="es">${q.ans}</b></div>`:'');}
+function ansOrder(){const z=QZ,q=z.qs[z.i];if(z.done||!q._sel.length)return;feedback(norm(q._sel.map(k=>q._pool[k]).join(' '))===norm(q.ans));}
+function feedback(ok,note){const z=QZ,q=z.qs[z.i];z.done=true;
+ if(ok){z.ok++;z.streak++;}else{z.streak=0;z.wrong.push(q);}
+ if(q.tp){z.tp[q.tp]=z.tp[q.tp]||[0,0];z.tp[q.tp][1]++;if(ok)z.tp[q.tp][0]++;}
+ const c=$('#chk');if(c)c.style.display='none';
+ $('#fb').innerHTML=`<div class="fb ${ok?'good':'bad'}"><b>${ok?pick(['¡Muy bien! 🎉','¡Perfecto! ⭐','¡Excelente! 💪','¡Genial! 🔥']):'¡Casi! 😅'}</b> ${q.say?sayBtn(q.say):''}${ok?'':`<div>${B('정답','Answer')}: <b class="es">${q.ans}</b></div>`}${note||''}${q.ex?`<div class="ex">${q.ex}</div>`:''}</div><button class="primary" onclick="nextQ()">${z.i+1<z.qs.length?B('다음 →','Next →'):B('결과 보기','See results')}</button>`;}
+function nextQ(){const z=QZ;if(!z||!z.done)return;if(++z.i<z.qs.length)return renderQ();
+ const pct=Math.round(z.ok/z.qs.length*100);save.best[z.key]=Math.max(save.best[z.key]||0,pct);store.set(save);if(pct>=80)confetti();
+ const msg=pct>=90?B('완벽해요! 시험 준비 끝! 🎓','Amazing! You are ready! 🎓'):pct>=70?B('잘했어요! 틀린 것만 다시 보면 돼요.','Nice! Just review the ones you missed.'):B('괜찮아요! 설명을 다시 읽고 한 번 더 도전!','No worries! Re-read the lesson and try again!');
+ const br=z.key==='final'?`<div class="card" style="text-align:left"><h3>📊 ${B('주제별 결과','By topic')}</h3>${[1,2,3,4].map(t=>{const r=z.tp[t]||[0,0];return `<p style="margin:8px 0 0">${TOPIC[t].e} ${TOPIC[t].n} — <b>${r[0]}/${r[1]}</b></p><div class="meter"><i style="width:${r[1]?r[0]/r[1]*100:0}%"></i></div>`;}).join('')}</div>`:'';
+ $('#quiz').innerHTML=`<div class="qwrap"><div class="card result"><div>${QUIZ[z.key].title}</div><div class="pct">${pct}%</div><div style="font-size:1.8rem">${stars(pct)}</div><p><b>${z.ok} / ${z.qs.length}</b></p><p>${msg}</p></div>${br}
+ ${z.wrong.length?`<div class="card"><h3>📝 ${B('틀린 문제 복습','Review your mistakes')}</h3>${z.wrong.map(q=>`<div class="rev">✅ <b class="es">${q.ans}</b> ${q.say?sayBtn(q.say):''}${q.ex?`<div class="ex">${q.ex}</div>`:''}</div>`).join('')}</div>`:''}
+ <button class="primary" onclick="startQuiz('${z.key}')">🔁 ${B('다시 도전','Try again')}</button><button class="primary" style="background:#fff;color:var(--ink)" onclick="closeQuiz()">${B('돌아가기','Back')}</button></div>`;
+ $('#quiz').scrollTop=0;}
+
+/* ============ confetti ============ */
+function confetti(){const c=$('#confetti'),x=c.getContext('2d');c.width=innerWidth;c.height=innerHeight;
+ const col=['#E4432B','#FFC531','#159A8C','#6B4EE6','#FF8FA3'],ps=Array.from({length:110},()=>({x:Math.random()*c.width,y:-20-Math.random()*c.height*.5,v:2+Math.random()*4,w:6+Math.random()*6,c:pick(col),r:Math.random()*6,d:Math.random()*2-1}));
+ let n=0;(function f(){x.clearRect(0,0,c.width,c.height);ps.forEach(p=>{p.y+=p.v;p.x+=p.d;p.r+=.1;x.save();x.translate(p.x,p.y);x.rotate(p.r);x.fillStyle=p.c;x.fillRect(-p.w/2,-p.w/2,p.w,p.w*.6);x.restore();});if(n++<150)requestAnimationFrame(f);else x.clearRect(0,0,c.width,c.height);})();}
+
+/* ============ init ============ */
+if(typeof document!=='undefined'){
+ if(save.lang==='en'){document.body.classList.replace('ko','en');}
+ document.addEventListener('click',e=>{const b=e.target.closest('[data-say]');if(b)speak(b.dataset.say);});
+ const t=new Date(),d=Math.ceil((new Date(2026,10,13)-new Date(t.getFullYear(),t.getMonth(),t.getDate()))/864e5);
+ $('#dday').textContent=d>0?'D-'+d:d===0?'D-DAY':'¡Suerte!';
+ try{speechSynthesis.getVoices();}catch(e){}
+ render();
+}
+</script>
+</body>
+</html>
