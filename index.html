@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -92,11 +92,10 @@ nav button.on{background:var(--yel)}
 @media(max-width:420px){.grid{grid-template-columns:1fr}}
 </style>
 </head>
-<body class="ko">
+<body class="en">
 <header>
   <h1>¡Examen #2! 🇪🇸</h1>
   <span class="dday" id="dday"></span>
-  <button class="lang" onclick="toggleLang()">한 / EN</button>
 </header>
 <main id="main"></main>
 <nav id="nav"></nav>
@@ -104,7 +103,7 @@ nav button.on{background:var(--yel)}
 <canvas id="confetti"></canvas>
 <script>
 /* ============ helpers ============ */
-const B=(ko,en)=>`<span class="ko">${ko}</span><span class="en">${en}</span>`;
+const B=(ko,en)=>en;
 const $=s=>document.querySelector(s);
 const shuffle=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;};
 const pick=a=>a[Math.floor(Math.random()*a.length)];
@@ -489,7 +488,6 @@ function confetti(){const c=$('#confetti'),x=c.getContext('2d');c.width=innerWid
 
 /* ============ init ============ */
 if(typeof document!=='undefined'){
- if(save.lang==='en'){document.body.classList.replace('ko','en');}
  document.addEventListener('click',e=>{const b=e.target.closest('[data-say]');if(b)speak(b.dataset.say);});
  const t=new Date(),d=Math.ceil((new Date(2026,10,13)-new Date(t.getFullYear(),t.getMonth(),t.getDate()))/864e5);
  $('#dday').textContent=d>0?'D-'+d:d===0?'D-DAY':'¡Suerte!';
